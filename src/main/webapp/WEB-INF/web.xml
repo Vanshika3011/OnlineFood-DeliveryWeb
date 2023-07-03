@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>homePage</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>homePage</servlet-name>
+        <url-pattern>/homePage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>signUp</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.SignUpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>signUp</servlet-name>
+        <url-pattern>/signUp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>verifyUser</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.VerificationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>verifyUser</servlet-name>
+        <url-pattern>/verifyUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>errorPage</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.ErrorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>errorPage</servlet-name>
+        <url-pattern>/errorPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>adminHomePage</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.AdminHomePageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminHomePage</servlet-name>
+        <url-pattern>/adminHomePage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>userManagement</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.UserManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userManagement</servlet-name>
+        <url-pattern>/userManagement</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteUser</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteUser</servlet-name>
+        <url-pattern>/deleteUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>restaurantManagement</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.RestaurantManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>restaurantManagement</servlet-name>
+        <url-pattern>/restaurantManagement</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewRestaurant</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.ViewRestaurantDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewRestaurant</servlet-name>
+        <url-pattern>/viewRestaurant</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>cuisineManagement</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.CuisineManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cuisineManagement</servlet-name>
+        <url-pattern>/cuisineManagement</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addCuisine</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.AddCuisineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addCuisine</servlet-name>
+        <url-pattern>/addCuisine</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteCuisineItem</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.DeleteCuisineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteCuisineItem</servlet-name>
+        <url-pattern>/deleteCuisineItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>editCuisineItem</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.admin.EditCuisineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editCuisineItem</servlet-name>
+        <url-pattern>/editCuisineItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addRestaurant</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.AddRestaurantServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addRestaurant</servlet-name>
+        <url-pattern>/addRestaurant</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>editRestaurant</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.EditRestaurantDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editRestaurant</servlet-name>
+        <url-pattern>/editRestaurant</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>manageRestaurant</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.RestaurantAdminManagerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>manageRestaurant</servlet-name>
+        <url-pattern>/manageRestaurant</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>menuManager</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.MenuManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>menuManager</servlet-name>
+        <url-pattern>/menuManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addMenuItem</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.AddMenuItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addMenuItem</servlet-name>
+        <url-pattern>/addMenuItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteMenuItem</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.DeleteMenuItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteMenuItem</servlet-name>
+        <url-pattern>/deleteMenuItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>editMenuItem</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.EditMenuItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editMenuItem</servlet-name>
+        <url-pattern>/editMenuItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>sortMenuItem</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.SortMenuItemsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sortMenuItem</servlet-name>
+        <url-pattern>/sortMenuItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>customerHomePage</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.CustomerHomePageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>customerHomePage</servlet-name>
+        <url-pattern>/customerHomePage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>menuPage</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.MenuPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>menuPage</servlet-name>
+        <url-pattern>/menuPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewRestaurantMenu</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.ViewRestaurantMenu</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewRestaurantMenu</servlet-name>
+        <url-pattern>/viewRestaurantMenu</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewCartDetails</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.ViewCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewCartDetails</servlet-name>
+        <url-pattern>/viewCartDetails</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>decreaseItemCount</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.DecreaseItemCountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>decreaseItemCount</servlet-name>
+        <url-pattern>/decreaseItemCount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>removeItem</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.RemoveItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>removeItem</servlet-name>
+        <url-pattern>/removeItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>increaseItemCount</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.IncreaseItemCountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>increaseItemCount</servlet-name>
+        <url-pattern>/increaseItemCount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewItemsById</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.ViewMenuItemsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewItemsById</servlet-name>
+        <url-pattern>/viewItems</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewRestaurantByCategory</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.ViewRestaurantsByCategoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewRestaurantByCategory</servlet-name>
+        <url-pattern>/viewRestaurantByCategory</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addToCart</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.AddToCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addToCart</servlet-name>
+        <url-pattern>/addToCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addressPage</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.ViewAddressServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addressPage</servlet-name>
+        <url-pattern>/addressPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addAddressPage</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.AddAddressServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addAddressPage</servlet-name>
+        <url-pattern>/addAddressPage</url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>

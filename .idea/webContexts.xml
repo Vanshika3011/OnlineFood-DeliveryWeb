@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/restaurantManagement.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/userMangement.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/customer/viewCartDetails.jsp" value="file://$PROJECT_DIR$/src/main/webapp/customer" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/restaurantAdmin/editRestaurantDetails.jsp" value="file://$PROJECT_DIR$/src/main/webapp/restaurantAdmin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/restaurantAdmin/restaurantAdminManager.jsp" value="file://$PROJECT_DIR$/src/main/webapp/restaurantAdmin" />
+      </map>
+    </option>
+  </component>
+</project>
