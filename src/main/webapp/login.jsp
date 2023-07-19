@@ -11,7 +11,7 @@
         }
 
         .container {
-            width: 300px;
+            width: 400px;
             margin: 0 auto;
             margin-top: 100px;
             padding: 20px;
@@ -25,8 +25,15 @@
         }
 
         label, input {
+            font-size: large;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
         }
 
         input[type="submit"] {
@@ -34,7 +41,7 @@
             color: #fff;
             padding: 10px 15px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
         }
     </style>
@@ -42,8 +49,9 @@
 <body>
 <div class="container">
     <h2>Login Page</h2>
-    <p style="color: red">${error}</p>
     <form method="post" action="/doLogin">
+        <p style="color: dodgerblue">${requestScope.message}</p>
+        <p style="color: red">${requestScope.error}</p>
 
         <p style="color: red">${requestScope.userNameError}</p>
         <label for="username">Username:</label>
@@ -55,7 +63,8 @@
 
         <input type="submit" value="Login">
     </form>
-    <p>Don't have an account? <a href="/signUp">Sign up</a></p>
+    <p> <a href="/signUp">Don't have an account? Sign-up now</a></p>
+    <p> <a href="/forgotPassword">Forgot Password?</a></p>
 </div>
 
 </body>

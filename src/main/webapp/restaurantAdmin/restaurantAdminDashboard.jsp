@@ -18,7 +18,7 @@
         }
 
         .restAdmin-tab a:hover {
-            background-color: #ead1dc;
+            background-color: #FFC7C7;
         }
     </style>
 </head>
@@ -26,7 +26,7 @@
 <div class="restAdmin-tab">
     <a href="/manageRestaurant">Restaurant</a>
     <a href="/menuManager">Menu</a>
-    <a href="/orderManagement">Orders</a>
+    <a href="/viewOrders">Orders</a>
     <a href="/logout">Logout</a>
 </div>
 <br>

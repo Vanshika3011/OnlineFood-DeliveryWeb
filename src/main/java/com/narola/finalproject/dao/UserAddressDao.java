@@ -62,7 +62,7 @@ public class UserAddressDao {
                 userAddress.setStreetLine2(rs.getString(4));
                 userAddress.setLandmark(rs.getString(5));
                 userAddress.setPincode(rs.getInt(8));
-                userAddress.setUserAddressId(11);
+                userAddress.setUserAddressId(rs.getInt(11));
 
                 state.setStateId(6);
                 state.setStateName(rs.getString(10));

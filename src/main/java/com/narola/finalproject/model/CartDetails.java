@@ -11,7 +11,7 @@ public class CartDetails {
     private int cartItemId;
     private int itemId;
     private String imageUrl;
-    private String totalPrice;
+    private double totalPrice;
 
     public int getCartId() {
         return cartId;
@@ -85,11 +85,11 @@ public class CartDetails {
         this.imageUrl = imageUrl;
     }
 
-    public String getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(String totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

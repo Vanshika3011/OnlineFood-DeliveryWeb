@@ -49,7 +49,27 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+
+        img{
+            height: 90px;
+            width: 90px;
+        }
     </style>
+
+    <script>
+        function previewImage(event) {
+            var input = event.target;
+            var preview = document.querySelector('.image-preview img');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </head>
 <body>
 <jsp:include page="restaurantAdminDashboard.jsp"/>
@@ -58,7 +78,7 @@
 %>
 <div class="container">
     <h2>Edit Menu Item</h2>
-    <form action="/editMenuItem?id=<%= restaurantMenu.getItemId()%>" method="post">
+    <form action="/editMenuItem?id=<%= restaurantMenu.getItemId()%>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <p style="color: red">${requestScope.itemNameError}</p>
             <label for="itemName">Item Name:</label>
@@ -105,6 +125,15 @@
             <label><input type="radio" name="availability" value="true" <% if (restaurantMenu.isAvailability()) { %>checked<% } %> > Yes</label>
             <label><input type="radio" name="availability" value="false" <% if (!restaurantMenu.isAvailability()) { %>checked<% } %>> No</label>
         </div>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" onchange="previewImage(event)" >
+
+        <div class="image-preview">
+            <img id="preview-img" name="image" src="<%= restaurantMenu.getItemsImage().getImageUrl()%>" alt="Image Preview">
+        </div>
+
+        <input type="hidden" name="imagePath" value="<%= restaurantMenu.getItemsImage().getImageUrl()%>">
         <input type="hidden" name="itemId" value="<%= restaurantMenu.getItemId()%>">
         <div class="form-group">
             <input type="submit" value="Edit">

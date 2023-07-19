@@ -2,6 +2,7 @@ package com.narola.finalproject.servlet.customer;
 
 import com.narola.finalproject.exception.DAOLayerException;
 import com.narola.finalproject.model.CuisineCategory;
+import com.narola.finalproject.model.User;
 import com.narola.finalproject.service.CuisineCategoryService;
 
 import javax.servlet.*;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class CustomerHomePageServlet extends HttpServlet {
 
-    CuisineCategoryService cuisineCategoryService = new CuisineCategoryService();
+    private CuisineCategoryService cuisineCategoryService = new CuisineCategoryService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

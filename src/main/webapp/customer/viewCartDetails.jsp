@@ -41,7 +41,7 @@
         }
 
         .cart-item-actions a:hover, .cart-item-actions button:hover {
-            background-color: #333;
+            background-color: #F1CF7F;
             color: #F9dfa2;
         }
 
@@ -59,7 +59,7 @@
         }
 
         .buttons:hover {
-            background-color: #45a049;
+            background-color: #F1CF7F;
         }
 
         .text-container {
@@ -72,7 +72,8 @@
 <body>
 <jsp:include page="customerDashboard.jsp"/>
 <h1>Your Cart Details</h1>
-<% CartDetails cartDetails = (CartDetails) request.getAttribute("cartDetails");%>
+<% CartDetails cartDetails = (CartDetails) request.getAttribute("cartDetails");
+    if (cartDetails.getCartId() != 0) {%>
 <br>
 <br>
 <h2> Restaurant Name : <%= cartDetails.getRestaurantName()%>
@@ -114,12 +115,15 @@
     %>
 </table>
 
-<div class="text-container" >
-    <p> Total amount : <%= cartDetails.getTotalPrice()%></p>
+<div class="text-container">
+    <p> Total amount : <%= cartDetails.getTotalPrice()%>
+    </p>
 </div>
 <div class="cart-item-actions" style="display: flex; justify-content: center; align-items: center;">
-    <a href="/addressPage">Select Address</a>
+    <a href="/addressPage">Order Now</a>
 </div>
-
+<%} else {%>
+<h1 style="text-align: center; color: #F9dfa2">Cart is empty.</h1>
+<%}%>
 </body>
 </html>

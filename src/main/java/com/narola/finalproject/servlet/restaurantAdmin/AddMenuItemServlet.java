@@ -74,10 +74,10 @@ public class AddMenuItemServlet extends HttpServlet {
                 restaurantMenu.setVeg(Boolean.parseBoolean(foodType));
 
                 String fileName = Utility.getSubmittedFileName(filePart);
-                String staticFolderPath = getServletContext().getRealPath("/static/MenuItemsImgs");
+                String staticFolderPath = getServletContext().getRealPath(getServletContext().getInitParameter("imageFolderPath"));
                 String filePath = staticFolderPath + File.separator + fileName;
                 Utility.putImageToDirectory(filePath, filePart);
-                String targetFilePath = "\\static\\MenuItemsImgs" + File.separator + fileName;
+                String targetFilePath =getServletContext().getInitParameter("imageFolderPath")+ File.separator + fileName;
 
                 restaurantMenuService.addMenuItems(restaurantMenu, ownerId, targetFilePath);
                 response.sendRedirect("/menuManager");

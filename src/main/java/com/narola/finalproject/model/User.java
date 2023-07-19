@@ -18,6 +18,7 @@ public class User {
     private LocalDateTime updatedAt;
     private int createdBy;
     private int updatedBy;
+    private String passwordResetToken;
 
     public User() {
     }
@@ -132,6 +133,14 @@ public class User {
 
     public void setUpdatedBy(int updatedBy) {
         this.updatedBy = updatedBy;
+    }
+
+    public String getPasswordResetToken() {
+        return passwordResetToken;
+    }
+
+    public void setPasswordResetToken(String passwordResetToken) {
+        this.passwordResetToken = passwordResetToken;
     }
 
     @Override

@@ -174,10 +174,29 @@ public class RestaurantMenuDao {
             stmt.setInt(7,restaurantMenu.getItemId());
 
             stmt.executeUpdate();
+
+            updateMenuItemImage(restaurantMenu);
         } catch (SQLException e) {
             throw new DAOLayerException("Exception occurred while updating item", e);
         } catch (Exception e) {
             throw new DAOLayerException("Exception occurred while updating item", e);
+        }
+    }
+
+    public void updateMenuItemImage(RestaurantMenu restaurantMenu) throws DAOLayerException {
+        try {
+            String query = "Update items_image SET image_url=?,updated_at =default where item_id = ?";
+            Connection conn = DBConnection.getInstance().getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1, restaurantMenu.getItemsImage().getImageUrl());
+            stmt.setInt(2, restaurantMenu.getItemId());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new DAOLayerException("Exception occurred while updating item image", e);
+        } catch (Exception e) {
+            throw new DAOLayerException("Exception occurred while updating item image", e);
         }
     }
 
@@ -187,7 +206,8 @@ public class RestaurantMenuDao {
             String query = "Select m.item_id, m.item_name, m.category_id, m.is_veg, m.price, m.ingredients, m.availibility, c.cuisine_name, r.restaurant_name ,m.restaurant_id, i.image_id, i.image_url   from menu m\n" +
                     "join cuisine_category c on m.category_id = c.cuisine_category_id\n" +
                     "join items_image i on i.item_id = m.item_id\n" +
-                    "join restaurant r on r.id = m.restaurant_id";
+                    "join restaurant r on r.id = m.restaurant_id\n" +
+                    "where m.isDelete = 0";
 
             Connection conn = DBConnection.getInstance().getConnection();
             PreparedStatement stmt = conn.prepareStatement(query);

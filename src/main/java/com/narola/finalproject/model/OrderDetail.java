@@ -14,9 +14,10 @@ public class OrderDetail {
     private double totalAmount;
     private LocalDateTime orderDateTime;
     private String itemName;
-    private String restaurantName;
     private String orderStatusName;
-    private String customerName;
+    private String imageUrl;
+    private String cuisineName;
+
 
     public int getOrderItemId() {
         return orderItemId;
@@ -98,27 +99,22 @@ public class OrderDetail {
         this.itemName = itemName;
     }
 
-    public String getRestaurantName() {
-        return restaurantName;
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public String getOrderStatusName() {
-        return orderStatusName;
+    public String getCuisineName() {
+        return cuisineName;
     }
 
-    public void setOrderStatusName(String orderStatusName) {
-        this.orderStatusName = orderStatusName;
+    public void setCuisineName(String cuisineName) {
+        this.cuisineName = cuisineName;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
 }

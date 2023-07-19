@@ -32,6 +32,10 @@ public class UserService {
         mailSender.sendEmail(user.getEmail(), subject, body);
     }
 
+    public boolean isEmailExist(String email) throws DAOLayerException {
+        return userDao.isUserEmailExist(email);
+    }
+
     public void doSignUp(User user) throws DAOLayerException, MailException {
         sendMail(user);
         userDao.createUser(user);
@@ -89,18 +93,42 @@ public class UserService {
                 desiredUserList.addAll(userList);
                 break;
 
-        }return desiredUserList;
+        }
+        return desiredUserList;
     }
 
     public void deleteUser(int userId) throws DAOLayerException {
         userDao.deleteUser(userId);
     }
 
-    public void addUserAddress(UserAddress userAddress) throws DAOLayerException{
+    public void addUserAddress(UserAddress userAddress) throws DAOLayerException {
         userAddressDao.doAddUserAddress(userAddress);
     }
 
     public List<UserAddress> getUserAddressList(int userId) throws DAOLayerException {
-       return userAddressDao.getUserAddressDetails(userId);
+        return userAddressDao.getUserAddressDetails(userId);
     }
+
+    public void addPasswordToken(String email, String token) throws DAOLayerException {
+        userDao.addPasswordResetToken(email, token);
+    }
+
+    public void sendMailForPassword(String email, String url) throws MailException {
+        String subject = "Password Reset Request";
+        String body = "Hello,\nClick on this link to change your password.\n\n" + url;
+        mailSender.sendEmail(email, subject, body);
+    }
+
+    public String getUserEmail(String token) throws DAOLayerException {
+        return userDao.getEmailForPasswordReset(token);
+    }
+
+    public void removePasswordToken(String email) throws DAOLayerException {
+        userDao.removeToken(email);
+    }
+
+    public void updatePassword(String email, String password) throws DAOLayerException {
+        userDao.updatePassword(email,password);
+    }
+
 }

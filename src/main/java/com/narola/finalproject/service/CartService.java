@@ -62,4 +62,12 @@ public class CartService {
     public  CartDetails getUserCartDetailsWithTotal(int customerId) throws DAOLayerException {
         return cartDao.getUserCartDetailsWithSum(customerId);
     }
+
+    public void deleteCartDetails(int customerId) throws DAOLayerException {
+        cartDao.deleteUserCart(customerId);
+    }
+
+    public int getCartItemCount(int customerId) throws DAOLayerException{
+        return cartDao.getCartItemCount(customerId);
+    }
 }

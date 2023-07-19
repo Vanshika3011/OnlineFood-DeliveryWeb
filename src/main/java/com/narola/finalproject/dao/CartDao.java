@@ -177,13 +177,34 @@ public class CartDao {
                 cartDetails.setCartId(rs.getInt(1));
                 cartDetails.setRestaurantId(rs.getInt(2));
                 cartDetails.setRestaurantName(rs.getString(3));
-                cartDetails.setTotalPrice(String.valueOf(rs.getDouble(4)));
+                cartDetails.setTotalPrice((rs.getDouble(4)));
             }
             return cartDetails;
         } catch (SQLException e) {
             throw new DAOLayerException("Exception occurred while fetching cart items details", e);
         } catch (Exception e) {
             throw new DAOLayerException("Exception occurred while fetching cart items details", e);
+        }
+    }
+
+    public int getCartItemCount(int userId) throws DAOLayerException {
+        try {
+            int cartCount = 0;
+            String query = "select count(*) from cart_items i join cart c on i.cart_id = c.cart_id where c.customer_id = ?";
+            Connection conn = DBConnection.getInstance().getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setInt(1, userId);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                cartCount = rs.getInt(1);
+            }
+            return cartCount;
+        } catch (SQLException e) {
+            throw new DAOLayerException("Exception occurred while fetching cart items", e);
+        } catch (Exception e) {
+            throw new DAOLayerException("Exception occurred while fetching cart items", e);
         }
     }
 }

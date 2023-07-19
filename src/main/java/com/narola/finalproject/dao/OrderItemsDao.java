@@ -17,11 +17,12 @@ public class OrderItemsDao {
             PreparedStatement stmt = conn.prepareStatement(query);
 
             stmt.setInt(1, orderId);
-            stmt.setInt(2, cartList.getCartItemId());
+            stmt.setInt(2, cartList.getItemId());
             stmt.setInt(3, cartList.getQuantity());
             stmt.setDouble(4, cartList.getPrice());
             stmt.setInt(5, customerId);
             stmt.setInt(6, customerId);
+
 
             stmt.executeUpdate();
         } catch (

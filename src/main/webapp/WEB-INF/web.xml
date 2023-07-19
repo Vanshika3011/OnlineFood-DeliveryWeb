@@ -7,6 +7,21 @@
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
+    
+    <context-param>
+        <param-name>key_id</param-name>
+        <param-value>rzp_test_IXkQzZkPqkm8lE</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>key_secret</param-name>
+        <param-value>AL6yfAgvKhnD7jWJtsIIIC82</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>imageFolderPath</param-name>
+        <param-value>/static/MenuItemsImgs</param-value>
+    </context-param>
 
     <servlet>
         <servlet-name>homePage</servlet-name>
@@ -33,6 +48,24 @@
     <servlet-mapping>
         <servlet-name>signUp</servlet-name>
         <url-pattern>/signUp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>forgotPassword</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.ForgotPasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>forgotPassword</servlet-name>
+        <url-pattern>/forgotPassword</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>resetPassword</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.ResetPasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>resetPassword</servlet-name>
+        <url-pattern>/resetPassword</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -168,6 +201,33 @@
     <servlet-mapping>
         <servlet-name>menuManager</servlet-name>
         <url-pattern>/menuManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewOrders</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.ViewOrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewOrders</servlet-name>
+        <url-pattern>/viewOrders</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>viewOrderDetails</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.ViewOrderDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewOrderDetails</servlet-name>
+        <url-pattern>/viewOrderDetails</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateOrderStatus</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.restaurantAdmin.UpdateOrderStatusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateOrderStatus</servlet-name>
+        <url-pattern>/updateOrderStatus</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -323,6 +383,39 @@
         <url-pattern>/addAddressPage</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>placeOrder</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>placeOrder</servlet-name>
+        <url-pattern>/placeOrder</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>doPayment</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.PaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doPayment</servlet-name>
+        <url-pattern>/doPayment</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>handle-payment-response</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.PostPaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>handle-payment-response</servlet-name>
+        <url-pattern>/handle-payment-response</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>myOrders</servlet-name>
+        <servlet-class>com.narola.finalproject.servlet.customer.ViewMyOrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myOrders</servlet-name>
+        <url-pattern>/myOrders</url-pattern>
+    </servlet-mapping>
 </web-app>

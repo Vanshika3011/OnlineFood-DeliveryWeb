@@ -3,15 +3,24 @@ package com.narola.finalproject.servlet.restaurantAdmin;
 import com.narola.finalproject.exception.DAOLayerException;
 import com.narola.finalproject.model.CuisineCategory;
 import com.narola.finalproject.model.Error;
+import com.narola.finalproject.model.ItemsImage;
 import com.narola.finalproject.model.RestaurantMenu;
 import com.narola.finalproject.service.CuisineCategoryService;
 import com.narola.finalproject.service.RestaurantMenuService;
+import com.narola.finalproject.utility.Utility;
 import com.narola.finalproject.validation.MenuValidation;
 
 import javax.servlet.*;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
+
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 50)
 
 public class EditMenuItemServlet extends HttpServlet {
     private RestaurantMenuService restaurantMenuService = new RestaurantMenuService();
@@ -42,7 +51,9 @@ public class EditMenuItemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             RestaurantMenu restaurantMenu = new RestaurantMenu();
+            ItemsImage itemsImage = new ItemsImage();
 
+            Part filePart = request.getPart("image");
             String itemId = request.getParameter("itemId");
             if (itemId.isEmpty()) {
                 request.setAttribute("error", "Item Id can't be empty.");
@@ -69,6 +80,22 @@ public class EditMenuItemServlet extends HttpServlet {
                     restaurantMenu.setVeg(Boolean.parseBoolean(foodType));
                     restaurantMenu.setAvailability(Boolean.parseBoolean(isAvailable));
 
+                    String filePath;
+
+                    if (filePart == null || filePart.getSize() == 0) {
+                        filePath = request.getParameter("imagePath");
+                        itemsImage.setImageUrl(filePath);
+                        restaurantMenu.setItemsImage(itemsImage);
+
+                    }else{
+                        String fileName = Utility.getSubmittedFileName(filePart);
+                        String staticFolderPath = getServletContext().getRealPath(getServletContext().getInitParameter("imageFolderPath"));
+                        filePath = staticFolderPath + File.separator + fileName;
+                        Utility.putImageToDirectory(filePath, filePart);
+                        String targetFilePath = getServletContext().getInitParameter("imageFolderPath") + File.separator + fileName;
+                        itemsImage.setImageUrl(targetFilePath);
+                        restaurantMenu.setItemsImage(itemsImage);
+                    }
                     restaurantMenuService.editMenuItems(restaurantMenu);
                     response.sendRedirect("/menuManager");
                 }

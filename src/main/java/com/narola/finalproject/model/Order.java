@@ -17,6 +17,10 @@ public class Order {
     private int updatedBy;
     private List<OrderDetail> orderDetailList;
     private String orderStatusName;
+    private UserAddress userAddress;
+    private RazorpayPaymentDetails razorpayPaymentDetails;
+    private String restaurantName;
+    private String customerName;
 
     public int getOrderId() {
         return orderId;
@@ -112,5 +116,37 @@ public class Order {
 
     public void setOrderStatusName(String orderStatusName) {
         this.orderStatusName = orderStatusName;
+    }
+
+    public UserAddress getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(UserAddress userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public RazorpayPaymentDetails getRazorpayPaymentDetails() {
+        return razorpayPaymentDetails;
+    }
+
+    public void setRazorpayPaymentDetails(RazorpayPaymentDetails razorpayPaymentDetails) {
+        this.razorpayPaymentDetails = razorpayPaymentDetails;
+    }
+
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 }

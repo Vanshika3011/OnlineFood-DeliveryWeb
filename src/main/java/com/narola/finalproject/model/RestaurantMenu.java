@@ -21,6 +21,7 @@ public class RestaurantMenu implements Comparable<RestaurantMenu>{
     private Restaurant restaurant;
     private String foodAvailability;
     private ItemsImage itemsImage;
+    private int quantity;
 
     public int getItemId() {
         return itemId;
@@ -156,6 +157,14 @@ public class RestaurantMenu implements Comparable<RestaurantMenu>{
 
     public void setItemsImage(ItemsImage itemsImage) {
         this.itemsImage = itemsImage;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override

@@ -100,6 +100,8 @@
 <body>
 <jsp:include page="customerDashboard.jsp"/>
 <br>
+<H1 style="text-align: center; color: lightseagreen">${requestScope.orderStatus}</H1>
+<p>${requestScope.error}</p>
 <h4>WHAT'S ON YOUR MIND?</h4><br>
 <div class="cuisine-filter">
     <% List<CuisineCategory> cuisines = (List<CuisineCategory>) request.getAttribute("cuisineCategoryList");

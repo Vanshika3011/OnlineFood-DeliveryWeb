@@ -175,4 +175,74 @@ public class UserDao {
             throw new DAOLayerException("Exception occurred while deleting user", e);
         }
     }
+
+    public void addPasswordResetToken(String email, String token) throws DAOLayerException {
+        try {
+            String query = "Update `user` Set pasword_reset_token = ? where email = ? ";
+            Connection conn = DBConnection.getInstance().getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1, token);
+            stmt.setString(2, email);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new DAOLayerException("Exception occurred while adding user password token", e);
+        } catch (Exception e) {
+            throw new DAOLayerException("Exception occurred while adding user password token", e);
+        }
+    }
+
+    public void removeToken(String email) throws DAOLayerException {
+        try {
+            String query = "Update `user` Set pasword_reset_token = null where email = ? ";
+            Connection conn = DBConnection.getInstance().getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1, email);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new DAOLayerException("Exception occurred while removing user password token", e);
+        } catch (Exception e) {
+            throw new DAOLayerException("Exception occurred while removing user password token", e);
+        }
+    }
+
+    public String getEmailForPasswordReset(String token) throws DAOLayerException {
+        try {
+            String email = null;
+            String query = "select email from `user` where pasword_reset_token = ?";
+            Connection conn = DBConnection.getInstance().getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1, token);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                email = rs.getString(1);
+            }
+            return email;
+        } catch (SQLException e) {
+            throw new DAOLayerException("Exception occurred while fetching user email", e);
+        } catch (Exception e) {
+            throw new DAOLayerException("Exception occurred while fetching user email", e);
+        }
+    }
+
+    public void updatePassword(String email, String password) throws DAOLayerException {
+        try {
+            String query = "Update `user` Set password = ? where email = ? ";
+            Connection conn = DBConnection.getInstance().getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            stmt.setString(1, encryptPassword(password));
+            stmt.setString(2, email);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new DAOLayerException("Exception occurred while adding user password ", e);
+        } catch (Exception e) {
+            throw new DAOLayerException("Exception occurred while adding user password ", e);
+        }
+    }
 }
